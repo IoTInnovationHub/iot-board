@@ -1,0 +1,21 @@
+{
+    "name": "iot-board",
+    "description": "Visualize IoT data flow of the Epitech Innovation Hub",
+    "main": "",
+    "authors": [
+	"Noam Silvy <noam.silvy@epitech.eu>"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/IoTInnovationHub/iot-board",
+    "private": true,
+    "ignore": [
+	"**/.*",
+	"node_modules",
+	"bower_components",
+	"test",
+	"tests"
+    ],
+    "dependencies": {
+	
+    }
+}
