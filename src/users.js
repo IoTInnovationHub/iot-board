@@ -1,64 +1,51 @@
 import React from 'react';
+var babel = require("babel-core");
 
 export default class Users extends React.Component {
     constructor()
     {
 	super();
 	this.state = {items:[]}
+
+	this.title = 'Who Is Here ?';
+	// fetch('https://innovation-hub.herokuapp.com/user/title')
+	this.view = '<td>IMAGE</td><td>{item.firstName}</td><td>{item.lastName}</td>';
+	this.viewFirst = '<table>'
+	this.viewEnd = '</table>'
+
+	// fetch('https://innovation-hub.herokuapp.com/user/view')
+	this.refreshRate = 5000;
+	// fetch('https://innovation-hub.herokuapp.com/user/refreshRate')
 	setInterval(function()
 		    {
 			this.update()
-		    }.bind(this), 5000)
+		    }.bind(this), this.refreshRate)
     }
 
     update()
     {
 	return (
-	    fetch('https://innovation-hub.herokuapp.com/user/')
+	    fetch('https://innovation-hub.herokuapp.com/user')
  		.then(result=>result.json())
 		.then(items=>this.setState({items}))
 	)
     }
 
+    parse(html, item)
+    {
+	Object.keys(item).forEach(function(key) {
+	    html = html.replace('{item.' + key + '}', item[key]);
+	});
+	return (html);
+    }
+    
     componentDidMount(){
 	this.update();
     }
 
     render() {
-	return (
-	    <div className="col-md-12">
-	      <div className="box jumbotron text-center" id="rooms">
-		<h3><b>Who is here</b></h3>
-    		<ul>
-		{this.state.items.length ?
-          	 this.state.items.map(item=><li key={item.id}>{item.firstName} {item.lastName}</li>)
-		 : <li>God</li>
-		}
-	    </ul>
-		<table style={{width: 100 + '%', textAlign: 'left'}}>
-		  <tr>
-		    <td><h4>Faire l'inventaire du matos</h4></td>
-		    <td><h4 className="text-center table-transp" ><b>9h-10h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Séminaire Android</h4></td>
-		    <td><h4 className="text-center table-transp"><b>11h-15h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Sprint All Teams</h4></td>
-		    <td><h4 className="text-center table-transp"><b>16h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Brainstorming Résidents</h4></td>
-		    <td><h4 className="text-center table-transp"><b>18h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Réunion</h4></td>
-		    <td><h4 className="text-center table-transp"><b>20h</b></h4></td>
-		  </tr>
-		</table>
-	      </div>
-	    </div>
-	);
+	var result = babel.transform({code: this.view});
+	return result.code;
+	;
     }
 }
