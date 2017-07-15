@@ -6,6 +6,7 @@ import Slack from './slack.js'
 import Locker from './locker.js'
 import Rooms from './rooms.js'
 import Map from './map.js'
+import Users from './users.js'
 import './style.css'
 
 class Board extends React.Component {
@@ -26,6 +27,7 @@ class Board extends React.Component {
 		<Map />
 		</div>
 		<div className="col-md-3">
+		<Users />
 		<Rooms />
 		</div>
 	    </div>
