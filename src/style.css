@@ -130,12 +130,10 @@ th, td {
     padding: 5px !important;
 }
 #map img{
-    position: absolute;
-    width: auto;
-    margin: auto;
-    left: 50%;
-    top: 50%;
-    z-index: -1; /* might need to change */
+    height:95%;
+    position:relative;
+    top: 2.5%;
+    left:25%;
 }
 #map canvas {
     margin: auto;
