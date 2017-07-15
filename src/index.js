@@ -5,6 +5,7 @@ import Calendar from './calendar.js'
 import Slack from './slack.js'
 import Locker from './locker.js'
 import Rooms from './rooms.js'
+import Map from './map.js'
 import './style.css'
 
 class Board extends React.Component {
@@ -20,22 +21,9 @@ class Board extends React.Component {
 		    <Locker />
 	      	  </div>
 	      	</div>
-	      </div>
-		<div className="col-md-5 box">
-		<table style={{width: '100%'}} className="table borderless text-center">
-		<tr>
-		<td>
-		Work In Progress...
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<div className="text-center" id="map">
-		<img src={require("./img/map.png")} alt="hub-map"/>
 		</div>
-		</td>
-		</tr>
-		</table>
+		<div className="col-md-5">
+		<Map />
 		</div>
 		<div className="col-md-3">
 		<Rooms />
