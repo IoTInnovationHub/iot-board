@@ -5,7 +5,6 @@ export default class Users extends React.Component {
     {
 	super();
 	this.state = {items:[]}
-	this.model = ['firstName', 'lastName'];
 	setInterval(function()
 		    {
 			this.update()
@@ -29,8 +28,9 @@ export default class Users extends React.Component {
 	return (
 		<div className="box jumbotron text-center borderless">
 		<h3><b>Who is here ?</b></h3>
+		Work In Progress...
 	    	{
-		    this.state.items.map(item=><img key={item.id} src={item.imgurl} className="beautifulImg" width='50'/>)
+		    this.state.items.map(item => <img key={item.id} src={item.imgurl} className="beautifulImg" width='50'/>)
 		}
 		</div>
 	);

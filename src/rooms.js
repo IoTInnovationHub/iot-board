@@ -4,31 +4,41 @@ export default class Rooms extends React.Component {
     render() {
 	return (
 	    <div className="col-md-12">
-	      <div className="box jumbotron text-center" id="rooms">
-		<h3><b>Rooms Informations</b></h3>
-		
-		<table style={{width: 100 + '%', textAlign: 'left'}}>
-		  <tr>
-		    <td><h4>Faire l'inventaire du matos</h4></td>
-		    <td><h4 className="text-center table-transp" ><b>9h-10h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Séminaire Android</h4></td>
-		    <td><h4 className="text-center table-transp"><b>11h-15h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Sprint All Teams</h4></td>
-		    <td><h4 className="text-center table-transp"><b>16h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Brainstorming Résidents</h4></td>
-		    <td><h4 className="text-center table-transp"><b>18h</b></h4></td>
-		  </tr>
-		  <tr>
-		    <td><h4>Réunion</h4></td>
-		    <td><h4 className="text-center table-transp"><b>20h</b></h4></td>
-		  </tr>
+		<div className="box jumbotron text-center" id="rooms">
+		Work In Progress...
+		<h3><b>Temperatures</b></h3>
+		<table className="table borderless">
+		<tr>
+		<td>
+		<table className="table borderless box">
+		<tr>
+		<td rowspan={2}>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Weather-sun-clouds-rain.svg/200px-Weather-sun-clouds-rain.svg.png" height="80" />
+		</td>
+		<td>
+		Cocreer<br/>17.5 Celsius
+	    </td>
+		</tr>
 		</table>
+		</td>
+		</tr>
+
+	    	<tr>
+		<td>
+		<table className="table borderless box">
+		<tr>
+		<td rowspan={2}>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Weather-sun-clouds-rain.svg/200px-Weather-sun-clouds-rain.svg.png" height="80" />
+		</td>
+		<td>
+		Echanger<br/>18.5 Celsius
+	    </td>
+		</tr>
+		</table>
+		</td>
+		</tr>
+
+	    </table>
 	      </div>
 	    </div>
 	);
