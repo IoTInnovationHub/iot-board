@@ -19,7 +19,6 @@ class Board extends React.Component {
 		    <Perso />
 		    <Calendar />
 		    <Slack />
-		    <Locker />
 	      	  </div>
 	      	</div>
 		</div>
