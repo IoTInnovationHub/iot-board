@@ -14,7 +14,7 @@ export default class Users extends React.Component {
     update()
     {
 	return (
-	    fetch('https://innovation-hub.herokuapp.com/user/')
+	    fetch('https://innovation-hub.herokuapp.com/user/present')
  		.then(result=>result.json())
 		.then(items=>this.setState({items}))
 	)
