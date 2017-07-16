@@ -21,6 +21,8 @@ export default class Slack extends React.Component {
 	count: '10'
     },
 		   function(err, response) {
+		       if (response.messages && response.messages.matches)
+			   response.messages.matches.reverse();
 		       this.setState({messages: response.messages});
 		       console.log(response);
 		   }.bind(this)
@@ -40,9 +42,9 @@ export default class Slack extends React.Component {
 		    <table className="table borderless">
 		    {this.state.messages.matches.map(msg=><tr><td>[{msg.username}]</td><td>{msg.text}</td></tr>)}
 		</table>
-		</div>
 		    </div>
-	    )
+		    </div>
+	    )	    
 	else
 	    return (
 		    <div className="col-md-12">
