@@ -8,7 +8,7 @@ export default class Users extends React.Component {
 	setInterval(function()
 		    {
 			this.update()
-		    }.bind(this), 5000)
+		    }.bind(this), 1000)
     }
 
     update()

@@ -18,7 +18,7 @@ class Board extends React.Component {
     setInterval(function()
 	{
 	  this.update();
-	}.bind(this), 5000)
+	}.bind(this), 10000)
   }
 
     componentDidMount(){
@@ -30,7 +30,6 @@ class Board extends React.Component {
     this.state.index++;
     if (this.state.index >= this.samples.length)
       this.state.index = 0;
-    console.log('im here');
     this.setState({renderedElements: this.samples[this.state.index]})
     return (this.state.renderedElements);
   }
