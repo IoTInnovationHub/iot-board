@@ -6,7 +6,7 @@ export default class Slack extends React.Component {
   {
     super();
       this.state = {messages: []}
-    var apiToken = "xoxp-93289188645-146266872480-214379413910-bfb9b30fbb95a4f89d1462a287259787";
+    var apiToken = "xoxp-93289188645-146266872480-213572008308-81ba928abec444b039afdb2786ebfae0"
     this.slack = new SlackAPI(apiToken);
       setInterval(function()
 	{
@@ -18,7 +18,6 @@ export default class Slack extends React.Component {
     {
     this.slack.api("search.messages", {
 	query: 'in:board',
-	sort: 'timestamp',
     },
 		   function(err, response) {
 		       this.setState({messages: response.messages});
