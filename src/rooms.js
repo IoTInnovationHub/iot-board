@@ -35,7 +35,7 @@ export default class Rooms extends React.Component {
 		  (item.category === 'Temperature')
 		  ? (<table className="table borderless box">
 		    <tr>
-		      <td rowspan={2}>
+		      <td rowSpan={2}>
 			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Weather-sun-clouds-rain.svg/200px-Weather-sun-clouds-rain.svg.png" height="80"/>
 		      </td>
 		      <td>

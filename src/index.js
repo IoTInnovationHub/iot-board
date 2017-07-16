@@ -10,6 +10,30 @@ import Users from './users.js'
 import './style.css'
 
 class Board extends React.Component {
+  constructor()
+  {
+    super();
+    this.state = {renderedElements:[], index:0};
+    this.samples = [<Users/>, <Rooms/>];
+    setInterval(function()
+	{
+	  this.update();
+	}.bind(this), 5000)
+  }
+
+    componentDidMount(){
+	this.update();
+    }
+
+  update()
+  {
+    this.state.index++;
+    if (this.state.index >= this.samples.length)
+      this.state.index = 0;
+    console.log('im here');
+    this.setState({renderedElements: this.samples[this.state.index]})
+    return (this.state.renderedElements);
+  }
     render() {
 	return (
 	    <div>
@@ -26,8 +50,7 @@ class Board extends React.Component {
 		<Map />
 		</div>
 		<div className="col-md-3">
-		<Users />
-		<Rooms />
+		{this.state.renderedElements}
 		</div>
 	    </div>
 	);
