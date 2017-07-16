@@ -18,6 +18,7 @@ export default class Slack extends React.Component {
     {
     this.slack.api("search.messages", {
 	query: 'in:board',
+	count: '10'
     },
 		   function(err, response) {
 		       this.setState({messages: response.messages});
