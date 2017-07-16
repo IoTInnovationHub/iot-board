@@ -23,6 +23,7 @@ export default class Rooms extends React.Component {
     componentDidMount(){
 	this.update();
     }
+
   render() {
     return (
       <div className="col-md-12">
