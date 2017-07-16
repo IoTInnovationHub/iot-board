@@ -27,7 +27,7 @@ export default class Rooms extends React.Component {
     return (
       <div className="col-md-12">
 	<div className="box jumbotron text-center" id="rooms">
-	  Work In Progres...
+	  Work In Progress...
 	  <h3><b>Temperatures</b></h3>
 	    <table className="table borderless">
 	      {
