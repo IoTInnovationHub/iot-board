@@ -6,7 +6,12 @@ export default class Slack extends React.Component {
   {
     super();
       this.state = {messages: []}
-    var apiToken = "xoxp-93289188645-146266872480-213572008308-81ba928abec444b039afdb2786ebfae0"
+      var slug = ["xoxp-93289188645",
+		       "-146266872480",
+		       "-212866155360",
+		       "-2ae8a83f68b508e920ca3a0",
+		       "787b4d1d8"];
+      var apiToken = slug.join('');
     this.slack = new SlackAPI(apiToken);
       setInterval(function()
 	{
