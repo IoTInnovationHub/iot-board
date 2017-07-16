@@ -7,6 +7,7 @@ import Locker from './locker.js'
 import Rooms from './rooms.js'
 import Map from './map.js'
 import Users from './users.js'
+import Blackfoot from './blackfoot.js'
 import './style.css'
 
 class Board extends React.Component {
@@ -39,7 +40,8 @@ class Board extends React.Component {
 	      <div className="col-md-4">
 	      	<div className="tab-content">
 	      	  <div role="tabpanel" id="perso-screen">
-		    <Perso />
+		<Perso />
+		<Blackfoot />
 		    <Calendar />
 		    <Slack />
 	      	  </div>

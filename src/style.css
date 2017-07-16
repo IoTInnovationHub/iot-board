@@ -183,3 +183,13 @@ th, td {
 .borderless td, .borderless th {
     border: none;
 }
+
+.bold
+{
+    font-weight: bold;
+}
+
+#blackfoot td
+{
+    padding: 5px;
+}
