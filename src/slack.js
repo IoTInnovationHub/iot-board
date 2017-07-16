@@ -38,9 +38,7 @@ export default class Slack extends React.Component {
 		    <div className="box jumbotron text-center" id="message">
 		    <h3><b>Slack @board</b></h3>
 		    <table className="table borderless">
-		    {
-			this.state.messages.matches.map(msg=><tr><td>[{msg.username}]</td><td>{msg.text}</td></tr>)
-		    }
+		    {this.state.messages.matches.map(msg=><tr><td>[{msg.username}]</td><td>{msg.text}</td></tr>)}
 		</table>
 		</div>
 		    </div>
