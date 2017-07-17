@@ -27,13 +27,14 @@ export default class Calendar extends React.Component {
 	this.update();
     }
 
-    formatTime(time){
+    formatTime(start, end){
 	var today = new Date;
-	var res = new Date(Date.parse(time))
+	var res = new Date(Date.parse(start))
+	var res2 = new Date(Date.parse(end))
 	if (res.getDate() === today.getDate())
-	    return res.getHours().toString() + 'h';
+	    return res.getHours().toString() + 'h' + '-' + res2.getHours().toString() + 'h';
 	else
-	    return 'Tomorrow : ' + res.getHours().toString() + 'h';
+	    return 'Tomorrow : ' + res.getHours().toString() + 'h' + ' - ' + res2.getHours().toString() + 'h';
     }
     
     render() {
@@ -42,7 +43,7 @@ export default class Calendar extends React.Component {
 		<h3><b>Today</b></h3>
 		<table className="table borderless">
 	    	{
-		    this.state.items.map(item => <tr><td style={{width:'20%'}} >{this.formatTime(item.start)} - {this.formatTime(item.end)}</td><td>{item.summary}</td></tr>)
+		    this.state.items.map(item => <tr><td style={{width:'35%'}} >{this.formatTime(item.start, item.end)}</td><td>{item.summary}</td></tr>)
 		}
 	    </table>
 		</div>
