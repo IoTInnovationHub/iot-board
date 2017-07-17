@@ -59,6 +59,11 @@ export default class Slack extends React.Component {
 	  }
 	}
       }
+      if ((index = text.search("<!")) > -1)
+      {
+	var string = text.substring(index + 2, text.indexOf('>'));
+	text = text.replace(/<!.+>/i, "@" + string);
+      }
     }
     return (text);
   }
