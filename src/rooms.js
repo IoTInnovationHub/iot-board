@@ -29,7 +29,7 @@ export default class Rooms extends React.Component {
 	    return (
 		    <div className="col-md-12">
 		    <div className="box jumbotron text-center" id="rooms">
-		    <h3><b>{this.state.items.category}</b></h3>
+		    <h3><b>{this.state.items[0].category}</b></h3>
 		    <table className="table borderless">
 		    {
 			this.state.items.map(item=>
