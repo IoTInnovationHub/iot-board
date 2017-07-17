@@ -41,7 +41,6 @@ class Board extends React.Component {
 	      	<div className="tab-content">
 	      	  <div role="tabpanel" id="perso-screen">
 		<Perso />
-		<Blackfoot />
 		    <Calendar />
 		    <Slack />
 	      	  </div>
