@@ -8,7 +8,7 @@ export default class Calendar extends React.Component {
 	setInterval(function()
 		    {
 			this.update()
-		    }.bind(this), 30000)
+		    }.bind(this), 60000)
     }
 
     update()
@@ -16,7 +16,10 @@ export default class Calendar extends React.Component {
 	return (
 	    fetch('https://innovation-hub.herokuapp.com/event')
  		.then(result=>result.json())
-		.then(items=>this.setState({items}))
+		.then(items=>{
+		    items.reverse();
+		    this.setState({items});
+		})
 	)
     }
 
@@ -24,13 +27,22 @@ export default class Calendar extends React.Component {
 	this.update();
     }
 
+    formatTime(time){
+	var today = new Date;
+	var res = new Date(Date.parse(time))
+	if (res.getDate() === today.getDate())
+	    return res.getHours().toString() + 'h';
+	else
+	    return 'Tomorrow : ' + res.getHours().toString() + 'h';
+    }
+    
     render() {
 	return (
 		<div className="box jumbotron text-center borderless">
 		<h3><b>Today</b></h3>
 		<table className="table borderless">
 	    	{
-		    this.state.items.map(item => <tr className="box"><td>{item.start}</td><td>{item.summary}</td></tr>)
+		    this.state.items.map(item => <tr><td style={{width:'20%'}} >{this.formatTime(item.start)} - {this.formatTime(item.end)}</td><td>{item.summary}</td></tr>)
 		}
 	    </table>
 		</div>
