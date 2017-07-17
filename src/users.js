@@ -25,14 +25,25 @@ export default class Users extends React.Component {
     }
 
     render() {
-	return (
-		<div className="box jumbotron text-center borderless">
-		<h3><b>Who is here ?</b></h3>
-		Work In Progress...
-	    	{
-		    this.state.items.map(item => <img key={item.id} src={item.imgurl} className="beautifulImg" width='50'/>)
-		}
+	if (this.state.items.length > 0)
+	{
+	    return (
+		    <div className="box jumbotron text-center borderless">
+		    <h3><b>Who is here ?</b></h3>
+	    	    {
+			this.state.items.map(item => <img key={item.id} src={item.imgurl} className="beautifulImg" width='50'/>)
+		    }
 		</div>
-	);
+	    );
+	}
+	else
+	{
+	    return (
+		    <div className="box jumbotron text-center borderless">
+		    <h3><b>Who is here ?</b></h3>
+		    Nobody.
+		</div>
+	    );	    
+	}
     }
 }

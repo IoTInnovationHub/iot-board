@@ -23,32 +23,43 @@ export default class Rooms extends React.Component {
     componentDidMount(){
 	this.update();
     }
-  render() {
-    return (
-      <div className="col-md-12">
-	<div className="box jumbotron text-center" id="rooms">
-	  Work In Progress...
-	  <h3><b>Temperatures</b></h3>
-	    <table className="table borderless">
-	      {
-		this.state.items.map(item=>
-		  (item.category === 'Temperature')
-		  ? (<table className="table borderless box">
-		    <tr>
-		      <td rowSpan={2}>
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Weather-sun-clouds-rain.svg/200px-Weather-sun-clouds-rain.svg.png" height="80"/>
-		      </td>
-		      <td>
-			{item.room}<br/>{item.value} {item.unit}
-		      </td>
-		    </tr>
-		  </table>)
-		  : null
-		)
-	      }
-	    </table>
-	  </div>
-	</div>
-    );
+    render() {
+	if (this.state.items.length > 0)
+	{
+	    return (
+		    <div className="col-md-12">
+		    <div className="box jumbotron text-center" id="rooms">
+		    <h3><b>{this.state.items.category}</b></h3>
+		    <table className="table borderless">
+		    {
+			this.state.items.map(item=>
+					     (<table className="table borderless box">
+					      <tr>
+					      <td rowSpan={2}>
+					      <img src={item.img} height="80"/>
+					      </td>
+					      <td>
+					      {item.room}<br/>{item.value} {item.unit}
+					      </td>
+					      </tr>
+					      </table>)
+					    )
+		    }
+		</table>
+		    </div>
+		    </div>
+	    );
+	}
+	else
+	{
+	    return (
+		    <div className="col-md-12">
+		    <div className="box jumbotron text-center" id="rooms">
+		    <h3><b>Room Informations</b></h3>
+		    Work In Progress...
+		    </div>
+		    </div>
+	    );
+	}
   }
 }
