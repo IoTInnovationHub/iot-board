@@ -33,8 +33,10 @@ export default class Calendar extends React.Component {
 	var res2 = new Date(Date.parse(end))
 	if (res.getDate() === today.getDate())
 	    return res.getHours().toString() + 'h' + '-' + res2.getHours().toString() + 'h';
-	else
+	else if (res.getDate() === today.getDate() + 1)
 	    return 'Tomorrow : ' + res.getHours().toString() + 'h' + ' - ' + res2.getHours().toString() + 'h';
+	else
+	    return res.getDate().toString() + '/' + res.getMonth().toString();
     }
     
     render() {
