@@ -40,7 +40,7 @@ export default class Calendar extends React.Component {
     render() {
 	return (
 		<div className="box jumbotron text-center borderless">
-		<h3><b>Today</b></h3>
+		<h3><b>Upcoming Events</b></h3>
 		<table className="table borderless">
 	    	{
 		    this.state.items.map(item => <tr><td style={{width:'35%'}} >{this.formatTime(item.start, item.end)}</td><td>{item.summary}</td></tr>)
