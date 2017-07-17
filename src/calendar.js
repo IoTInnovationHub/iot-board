@@ -17,7 +17,6 @@ export default class Calendar extends React.Component {
 	    fetch('https://innovation-hub.herokuapp.com/event')
  		.then(result=>result.json())
 		.then(items=>{
-		    items.reverse();
 		    this.setState({items});
 		})
 	)
@@ -34,14 +33,14 @@ export default class Calendar extends React.Component {
 	if (res.getDate() === today.getDate())
 	{
 	    var hours = res.getHours().toString() + 'h' + '-' + res2.getHours().toString() + 'h';
-	    if (res.getHours() === 2 && res2.getHours() === 2 && res.getDate() === res2.getDate() - 1)
+	    if (res.getHours() === 0 && res2.getHours() === 0 && res.getDate() === res2.getDate() - 1)
 		hours = 'All Day';
 	    return hours;
 	}
 	else if (res.getDate() === today.getDate() + 1)
 	{
 	    var hours = res.getHours().toString() + 'h' + '-' + res2.getHours().toString() + 'h';
-	    if (res.getHours() === 2 && res2.getHours() === 2 && res.getDate() === res2.getDate() - 1)
+	    if (res.getHours() === 0 && res2.getHours() === 0 && res.getDate() === res2.getDate() - 1)
 		hours = 'All Day';
 	    return 'Tomorrow : ' + hours;
 	}
