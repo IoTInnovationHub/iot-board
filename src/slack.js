@@ -68,14 +68,25 @@ export default class Slack extends React.Component {
     return (text);
   }
 
+    formatSlackTime(time)
+    {
+	var date = new Date(time);
+	return date.getHours() + 'h' + date.getMinutes();
+    }
+    
   render() {
     if (this.state.messages && this.state.messages.matches && this.state.messages.matches.length > 0)
       return (
 	  <div className="col-md-12">
 	  <div className="box jumbotron text-center" id="message">
 	  <h3><b>Slack @board</b></h3>
-	  <table className="table borderless">
-	  {this.state.messages.matches.map(msg=><tr><td>[{msg.username}]</td><td>{this.translateUsername(msg.text)}</td></tr>)}
+	      <table className="table borderless" style={{textAlign:'justify'}}>
+	      {this.state.messages.matches.map(msg=>
+					       <tr>
+					       <td style={{fontSize: '8px'}}>{this.formatSlackTime(msg.ts * 1000)}</td>
+					       <td><b>{msg.username}</b></td>
+					       <td style={{padding:'5px'}}>{this.translateUsername(msg.text.substring(0, 160))}</td>
+					       </tr>)}
 	  </table>
 	  </div>
 	  </div>

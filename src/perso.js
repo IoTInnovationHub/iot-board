@@ -6,7 +6,7 @@ export default class Perso extends React.Component {
 	    <div className="col-md-12">
 	      <div className="box jumbotron text-center" id="who">
 	      	<div className="photo">
-	      	<img src={require('./img/hub.png')} height="100"/>
+	      	<img src={require('./img/hub.png')} height="75"/>
 	      	</div>
 	      </div>
 	    </div>

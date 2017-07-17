@@ -52,7 +52,7 @@ export default class Calendar extends React.Component {
     
     render() {
 	return (
-		<div className="box jumbotron text-center borderless">
+		<div className="text-center borderless">
 		<br/>
 		<h3><b>Upcoming Events</b></h3>
 		<br/>
