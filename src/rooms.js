@@ -26,24 +26,38 @@ export default class Rooms extends React.Component {
     render() {
 	if (this.state.items.length > 0)
 	{
+	    var results = {};
+	    this.state.items.map(function(item)
+				 {
+				     results[item.room] = item;
+				 });
+	    var items = []
+	    Object.keys(results).forEach(function(result)
+					 {
+					     items.push(results[result]);
+					 });
 	    return (
 		    <div className="col-md-12">
 		    <div className="box jumbotron text-center" id="rooms">
 		    <h3><b>{this.state.items[0].category}</b></h3>
 		    <table className="table borderless">
 		    {
-			this.state.items.map(item=>
-					     (<table className="table borderless box">
-					      <tr>
-					      <td rowSpan={2}>
-					      <img src={item.img} height="80"/>
-					      </td>
-					      <td>
-					      {item.room}<br/>{item.value} {item.unit}
-					      </td>
-					      </tr>
-					      </table>)
-					    )
+			items.map(item=>
+				  (<table className="table borderless box">
+				   <tr>
+				   <td rowSpan={2}>
+				   {
+				       item.img ?
+					   <img src={item.img} height="80"/>
+					   : null
+				   }
+				   </td>
+				   <td>
+				   {item.room}<br/>{item.value} {item.unit}
+				   </td>
+				   </tr>
+				   </table>)
+				 )
 		    }
 		</table>
 		    </div>
