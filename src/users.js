@@ -28,20 +28,20 @@ export default class Users extends React.Component {
 	if (this.state.items.length > 0)
 	{
 	    return (
-		    <div className="box jumbotron text-center borderless">
+		    <div className="box text-center borderless">
+		    <img src={require('./img/hub.png')} height="75"/>
 		    <h3><b>Who is here ?</b></h3>
 	    	    {
 			this.state.items.map(item => <img key={item.id} src={item.imgurl} className="beautifulImg" width='50'/>)
 		    }
-		</div>
+		    </div>
 	    );
 	}
 	else
 	{
 	    return (
 		    <div className="box jumbotron text-center borderless">
-		    <h3><b>Who is here ?</b></h3>
-		    Nobody.
+		    <img src={require('./img/hub.png')} height="75"/>
 		</div>
 	    );	    
 	}

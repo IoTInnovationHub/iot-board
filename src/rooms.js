@@ -23,6 +23,7 @@ export default class Rooms extends React.Component {
     componentDidMount(){
 	this.update();
     }
+    
     render() {
 	if (this.state.items.length > 0)
 	{
@@ -45,7 +46,7 @@ export default class Rooms extends React.Component {
 			items.map(item=>
 				  (<table className="table borderless box">
 				   <tr>
-				   <td rowSpan={2}>
+				   <td style={{width:'30%'}}>
 				   {
 				       item.img ?
 					   <img src={item.img} height="80"/>
@@ -53,7 +54,7 @@ export default class Rooms extends React.Component {
 				   }
 				   </td>
 				   <td>
-				   {item.room}<br/>{item.value} {item.unit}
+				   <b>{item.room} [{item.boxId}]</b><br/>{item.value} {item.unit}
 				   </td>
 				   </tr>
 				   </table>)
@@ -70,7 +71,7 @@ export default class Rooms extends React.Component {
 		    <div className="col-md-12">
 		    <div className="box jumbotron text-center" id="rooms">
 		    <h3><b>Room Informations</b></h3>
-		    Work In Progress...
+		    Waiting for data
 		    </div>
 		    </div>
 	    );

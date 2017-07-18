@@ -15,11 +15,11 @@ class Board extends React.Component {
   {
     super();
     this.state = {renderedElements:[], index:0};
-    this.samples = [<Users/>, <Rooms/>];
+      this.samples = [<Rooms/>];
     setInterval(function()
 	{
 	  this.update();
-	}.bind(this), 10000)
+	}.bind(this), 1000000)
   }
 
     componentDidMount(){
@@ -39,8 +39,8 @@ class Board extends React.Component {
 	    <div>
 	      <div className="col-md-4">
 	      	<div className="tab-content">
-	      	  <div role="tabpanel" id="perso-screen">
-		<Perso />
+	      	<div role="tabpanel" id="perso-screen">
+		<Users />
 		    <Calendar />
 		    <Slack />
 	      	  </div>
