@@ -30,7 +30,7 @@ export default class Calendar extends React.Component {
 	var today = new Date;
 	var res = new Date(Date.parse(start))
 	var res2 = new Date(Date.parse(end))
-	var offtime = (process.env.STATUS == 'Far' ? 2 : 0);
+	var offtime = (process.env.STATUS === 'Far' ? 2 : 0);
 	if (res.getDate() === today.getDate())
 	{
 	    var hours = (res.getHours() + offtime).toString() + 'h'
