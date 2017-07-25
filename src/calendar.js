@@ -30,7 +30,7 @@ export default class Calendar extends React.Component {
 	var today = new Date;
 	var res = new Date(Date.parse(start))
 	var res2 = new Date(Date.parse(end))
-	var offtime = (process.env.STATUS === 'Far' ? 2 : 0);
+	var offtime = (process.env.STATUS === 'Far' ? 2 : 2);
 	if (res.getDate() === today.getDate())
 	{
 	    var hours = (res.getHours() + offtime).toString() + 'h'
@@ -64,12 +64,6 @@ export default class Calendar extends React.Component {
 		<h3><b>Upcoming Events</b></h3>
 		<br/>
 		<table className="table">
-		{
-		    process.env.STATUS
-		}
-	    {
-		process.env.STATUS === "Far" ? 'Oui' : 'Non'
-	    }
 	    	{
 		    this.state.items.map(item => <tr className="box"><td style={{width:'25%'}, {padding:'5px'}} >{this.formatTime(item.start, item.end)}</td><td>{item.summary}</td></tr>)
 		}
