@@ -30,17 +30,24 @@ export default class Calendar extends React.Component {
 	var today = new Date;
 	var res = new Date(Date.parse(start))
 	var res2 = new Date(Date.parse(end))
+	var offtime = (process.env.STATUS == 'Far' ? 2 : 0);
 	if (res.getDate() === today.getDate())
 	{
-	    var hours = res.getHours().toString() + 'h' + res.getMinutes().toString() + '-' + res2.getHours().toString() + 'h' + res2.getMinutes().toString();
-	    if (res.getHours() === 0 && res2.getHours() === 0 && res.getDate() === res2.getDate() - 1)
+	    var hours = (res.getHours() + offtime).toString() + 'h'
+	    	+ (res.getMinutes() !== 0 ? res.getMinutes().toString() : '')
+		+ '-' + (res2.getHours() + offtime).toString() + 'h'
+		+ (res2.getMinutes() !== 0 ? res2.getMinutes().toString() : '');
+	    if (res.getHours() === offtime && res2.getHours() === offtime && res.getDate() === res2.getDate() - 1)
 		hours = 'All Day';
 	    return hours;
 	}
 	else if (res.getDate() === today.getDate() + 1)
 	{
-	    var hours = res.getHours().toString() + 'h' + res.getMinutes().toString() + '-' + res2.getHours().toString() + 'h' + res2.getMinutes().toString();
-	    if (res.getHours() === 0 && res2.getHours() === 0 && res.getDate() === res2.getDate() - 1)
+	    var hours = (res.getHours() + offtime).toString() + 'h'
+	    	+ (res.getMinutes() !== 0 ? res.getMinutes().toString() : '')
+		+ '-' + (res2.getHours() + offtime).toString() + 'h'
+	    	+ (res.getMinutes() !== 0 ? res.getMinutes().toString() : '');
+	    if (res.getHours() === offtime && res2.getHours() === offtime && res.getDate() === res2.getDate() - 1)
 		hours = 'All Day';
 	    return 'Tomorrow : ' + hours;
 	}
