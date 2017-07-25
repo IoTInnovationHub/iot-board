@@ -64,6 +64,12 @@ export default class Calendar extends React.Component {
 		<h3><b>Upcoming Events</b></h3>
 		<br/>
 		<table className="table">
+		{
+		    process.env.STATUS
+		}
+	    {
+		process.env.STATUS === "Far" ? 'Oui' : 'Non'
+	    }
 	    	{
 		    this.state.items.map(item => <tr className="box"><td style={{width:'25%'}, {padding:'5px'}} >{this.formatTime(item.start, item.end)}</td><td>{item.summary}</td></tr>)
 		}
