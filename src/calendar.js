@@ -32,21 +32,21 @@ export default class Calendar extends React.Component {
 	var res2 = new Date(Date.parse(end))
 	if (res.getDate() === today.getDate())
 	{
-	    var hours = res.getHours().toString() + 'h' + '-' + res2.getHours().toString() + 'h';
+	    var hours = res.getHours().toString() + 'h' + res.getMinutes().toString() + '-' + res2.getHours().toString() + 'h' + res2.getMinutes().toString();
 	    if (res.getHours() === 0 && res2.getHours() === 0 && res.getDate() === res2.getDate() - 1)
 		hours = 'All Day';
 	    return hours;
 	}
 	else if (res.getDate() === today.getDate() + 1)
 	{
-	    var hours = res.getHours().toString() + 'h' + '-' + res2.getHours().toString() + 'h';
+	    var hours = res.getHours().toString() + 'h' + res.getMinutes().toString() + '-' + res2.getHours().toString() + 'h' + res2.getMinutes().toString();
 	    if (res.getHours() === 0 && res2.getHours() === 0 && res.getDate() === res2.getDate() - 1)
 		hours = 'All Day';
 	    return 'Tomorrow : ' + hours;
 	}
 	else
 	{
-	    return res.getDate().toString() + '/' + res.getMonth().toString();
+	    return res.getDate().toString() + '/' + (res.getMonth() + 1).toString();
 	}
     }
     
